@@ -1,0 +1,213 @@
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('./assets/fonts/SourceCodePro-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('./assets/fonts/SourceCodePro-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('./assets/fonts/Raleway-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Raleway';
+  src: url('./assets/fonts/Raleway-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+:root{
+  --blue1: #051923;
+  --blue2: #003554;
+  --blue3: #006494;
+  --blue4: #0582ca;
+  --blue5: #00a6fb;
+  --disabled: hsl(202, 45%, 61%);
+  --yellow1: #fdc500;
+  --yellow2: hsl(50, 100%, 60%);
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  padding-top: 3vh;
+  background-color: var(--blue2);
+  color: white;
+  font-family: "Raleway",sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main{
+  padding: 0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+h1{
+  text-align: center;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+h2{
+  margin-bottom: 0.8rem;
+}
+
+
+
+.start-game-form{
+  padding: 1.5rem 1rem;
+  background-color: var(--blue3);
+  max-width: 500px;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#player-name-input{
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+}
+
+.gameboards-wrapper{
+  justify-content: center;
+  gap: 4rem;
+}
+.gameboard{
+  display: grid;
+  grid-template-columns: repeat(10,1fr);
+}
+.ship-place-container{
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+}
+.ship-place-buttons-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: auto;
+}
+.ship-place-btn{
+  padding: 1rem 2rem;
+  background-color: var(--blue4);
+  border: none;
+  font-size: 1.2rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+}
+.ship-place-btn:hover{
+  cursor: pointer;
+  background-color: var(--blue5);
+}
+.ship-place-btn:active{
+  scale: 0.95;
+}
+.ship-place-btn:disabled{
+  background-color: var(--disabled);
+  color: #333;
+  cursor: default;
+}
+
+.buttons-container{
+  justify-self: flex-end;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cell{
+  outline: 1px solid var(--blue1);
+  height: 50px;
+  width: 50px;
+}
+.cell.empty{
+  background-color: var(--blue5);
+}
+.cell.miss{
+  background-color: var(--blue3);
+}
+.cell.ship{
+  background-color: darkgreen;
+}
+.cell.hit{
+  background-color: red; 
+}
+
+.cell.hover{
+  background-color: var(--yellow1);
+}
+
+
+
+.attack-result-msg-container{
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  background-color: var(--blue1);
+}
+.attack-result-msg{
+  align-self: stretch;
+  flex-grow: 1;
+  opacity: 0.8;
+}
+
+footer{
+  padding: 0.8rem;
+  background-color: var(--blue1);
+  color: white;
+}
+footer > p{
+  text-align: center;
+  opacity: 0.8;
+}
+a{
+  color: white;
+}
+a:hover{
+  color: var(--yellow1);
+}
+
+/* ======================================= */
+/* ======================================= */
+/* ======================================= */
+.btn{
+  padding: 1rem 2rem;
+  background-color: var(--yellow1);
+  border: none;
+  font-size: 1.2rem;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+}
+.btn:hover{
+  cursor: pointer;
+  background-color: var(--yellow2);
+}
+.hwrapper{
+  display: flex;
+}
+.vwrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.not-allowed{
+  cursor: not-allowed;
+}
+.hidden{
+  display: none;
+}
+.invisible{
+  visibility: hidden;
+}

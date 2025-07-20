@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Battleship</h1>
+  <main>
+    <form action="#" class="start-game-form">
+      <label for="player-name-input">Your name</label>
+      <input type="text" name="player-name" id="player-name-input" placeholder="e.g. DragonLord68">
+      <button class="btn start-game-btn">Start</button>
+    </form>
+    <div class="game-container vwrapper hidden">
+      <div class="gameboards-wrapper hwrapper">
+        <div class="player1-gameboard">
+          <h2>Player name</h2>
+          <div class="gameboard"></div>
+        </div>
+        <div class="player2-gameboard hidden">
+          <h2>Computer</h2>
+          <div class="gameboard"></div>
+        </div>
+        <div class="ship-place-container">
+          <h2>Fleet</h2>
+          <div class="ship-place-buttons-wrapper">
+            <button class="ship-place-btn" data-shipname="carrier">Carrier</button>
+            <button class="ship-place-btn" data-shipname="battleship">Battleship</button>
+            <button class="ship-place-btn" data-shipname="frigate">Frigate</button>
+            <button class="ship-place-btn" data-shipname="submarine">Submarine</button>
+            <button class="ship-place-btn" data-shipname="scout">Scout</button>
+          </div>
+          <div class="hwrapper buttons-container">
+            <button class="btn change-axis-btn">Axis: x</button>
+            <button class="btn start-battle-btn">Start battle</button>
+          </div>
+        </div>
+      </div>
+      <div class="attack-result-msg-container">
+        <p class="attack-result-msg"></p>
+        <button class="btn restart-btn invisible">Play again?</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <p>Developed by <a href="https://github.com/isimeri">isimeri</a> as part of <a href="https://www.theodinproject.com">The Odin Project</a> curriculum.</p>
+  </footer>
+</body>
+</html>
