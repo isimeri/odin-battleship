@@ -1,4 +1,4 @@
-import shipTypes from "../../helpers/shipTypes.js";
+import shipTypes from "../helpers/shipTypes.js";
 
 class Ship{
   constructor(name){

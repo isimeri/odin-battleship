@@ -1,5 +1,5 @@
 import Ship from "./Ship.js";
-import shipTypes from "../../helpers/shipTypes.js";
+import shipTypes from "../helpers/shipTypes.js";
 
 class Gameboard{
   constructor(){
