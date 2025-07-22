@@ -11,7 +11,8 @@
     "build": "webpack",
     "start": "node ./src/index.js",
     "dev": "webpack serve --open",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "deploy": "git subtree push --prefix dist origin gh-pages"
   },
   "devDependencies": {
     "@babel/core": "^7.27.7",

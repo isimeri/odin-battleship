@@ -140,40 +140,4 @@ class Player{
   }
 }
 
-// const user = new Player("marcel", "human");
-// const bot = new Player("botterino", "computer");
-
-// user.setOpponent(bot);
-// bot.setOpponent(user);
-
-// user.gameboard.placeShip("frigate", [1,2]);
-// user.gameboard.changeAxis(); //to y
-// user.gameboard.placeShip("carrier", [5,0]);
-// user.gameboard.placeShip("submarine", [2,5]);
-// user.gameboard.changeAxis() //to x
-// user.gameboard.placeShip("battleship", [5,7]);
-// user.gameboard.placeShip("scout", [1,9]);
-// // user.gameboard.printBoard();
-
-// bot.computerPlaceShips();
-
-// bot.attack(1,2);
-// console.log(bot.nextTargetCells);
-// bot.attack();
-// console.log(bot.nextTargetCells);
-// bot.attack();
-// console.log(bot.nextTargetCells);
-// bot.attack();
-// console.log(bot.nextTargetCells);
-// bot.attack();
-// bot.attack();
-// bot.attack();
-// bot.attack();
-// bot.attack();
-// console.log(bot.nextTargetCells);
-
-// // user.gameboard.printBoard();
-
-// // bot.gameboard.printBoard();
-
 export default Player;

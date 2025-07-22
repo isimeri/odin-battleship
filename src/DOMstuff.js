@@ -9,7 +9,6 @@ const axisBtn = document.querySelector(".change-axis-btn");
 const startBattleBtn = document.querySelector(".start-battle-btn");
 const buttonsContainer = document.querySelector(".buttons-container");
 const gameContainer = document.querySelector(".game-container");
-// const startGameBtn = document.querySelector(".start-game-btn");
 const startGameForm = document.querySelector(".start-game-form");
 const playerNameInput = document.getElementById("player-name-input");
 const attackResultMsgElem = document.querySelector(".attack-result-msg");
@@ -94,26 +93,30 @@ function botGameRound(game, p1GameboardElem){
 }
 
 function displayAttackResult(player,result){
-  const botName = player.getOpponent().getName();
-  const missArrPlayer = ["You gloriously missed.", "You missed impressively.", "You missed beautifully.", "You missed with the full power of the ancestors.", "You missed a little bit.", "You missed with every fiber of your being."]
-  const hitArrPlayer = [`You hit ${botName}'s ship with all your strength.`,`You slapped the sh...soul out of ${botName}'s ship.`, `What a glorious day, you hit ${botName}'s ship.`, `Very nice! ${botName}'s ship felt that hit.`, `You hit ${botName}'s ship. That's a lot of damage!`]
-  const sunkArrPlayer = [`Who lives in a pineapple under the sea? ${botName}'s <b>${result.name}</b>`, `${botName}'s <b>${result.name}</b> gloriously sank.`, `${botName}'s <b>${result.name}</b> went to feed the fish.`, `${botName}'s <b>${result.name}</b> permanently relocated to the bottom of the sea.`, `${botName}'s <b>${result.name}</b> disappeared all of a sudden.`]
+  const playerName = player.getName();
+  const opponentName = player.getOpponent().getName();
+  const missArrUser = ["You gloriously missed.", "You missed impressively.", "You missed beautifully.", "You missed with the full power of the ancestors.", "You missed a little bit.", "You missed with every fiber of your being.", `You missed haha.`, `You missed by this much.`]
+  const hitArrUser = [`You hit ${opponentName}'s ship with all your strength.`,`You slapped the sh...soul out of ${opponentName}'s ship.`, `What a glorious day, you hit ${opponentName}'s ship.`, `Very nice! ${opponentName}'s ship felt that hit.`, `You hit ${opponentName}'s ship. That's a lot of damage!`]
+  const sunkArrUser = [`Who lives in a pineapple under the sea? ${opponentName}'s <b>${result.name}</b>`, `${opponentName}'s <b>${result.name}</b> gloriously sank.`, `${opponentName}'s <b>${result.name}</b> went to feed the fish.`, `${opponentName}'s <b>${result.name}</b> permanently relocated to the bottom of the sea.`, `${opponentName}'s <b>${result.name}</b> disappeared all of a sudden.`, `${opponentName}'s <b>${result.name}</b> go "blub blub".`]
+  const missArrBot = [`${playerName} missed with all its might.`, `${playerName} missed with the power of a thousand suns.`, `${playerName} gloriously missed.`, `${playerName} missed impressively.`, `${playerName} missed a little bit.`, `${playerName} missed haha.`];
+  const hitArrBot = [`${playerName} hit your <b>${result.name}</b>. That's a lot of damage!`, `${playerName} hit your <b>${result.name}</b>.`, `You had a bad day. ${playerName} hit your <b>${result.name}</b>.`, `${playerName} damaged your <b>${result.name}</b>. This is so sad.`, `O no, ${playerName} hit your <b>${result.name}</b>.`];
+  const sunkArrBot = [`${playerName} sent your <b>${result.name}</b> to Bikini Bottom.`, `Your <b>${result.name}</b> copied the Titanic.`, `${playerName} sent your <b>${result.name}</b> to Davy Jones' locker.`, `${playerName} turned your <b>${result.name}</b> into a residential compound for fish.`, `Your <b>${result.name}</b> got yeeted and deleted.`, `$Your <b>${result.name}</b> go "blub blub".`, `$Your <b>${result.name}</b> disappeared. Where did it go?`]
   let msg;
   if(player.getIntelligence() === "human"){
     if(result === "miss"){
-      msg = missArrPlayer[Math.floor(Math.random() * missArrPlayer.length)];
+      msg = missArrUser[Math.floor(Math.random() * missArrUser.length)];
     } else if(typeof result === "object" && result.attackResult === "sunk"){
-      // msg = `You sunk ${player.getOpponent().getName()}'s ${result.name}`;
-      msg = sunkArrPlayer[Math.floor(Math.random() * sunkArrPlayer.length)];
+      msg = sunkArrUser[Math.floor(Math.random() * sunkArrUser.length)];
     } else if(typeof result === "object" && result.attackResult === "hit"){
-      // msg = `You hit ${player.getOpponent().getName()}'s ship`;
-      msg = hitArrPlayer[Math.floor(Math.random() * hitArrPlayer.length)];
+      msg = hitArrUser[Math.floor(Math.random() * hitArrUser.length)];
     }
   } else {
     if(result === "miss"){
-      msg = `${player.getName()} missed with all its might`;
-    } else if(typeof result === "object"){
-      msg = `${player.getName()} ${result.attackResult} your ${result.name}`;
+      msg = missArrBot[Math.floor(Math.random() * missArrBot.length)];
+    } else if(typeof result === "object" && result.attackResult === "sunk"){
+      msg = sunkArrBot[Math.floor(Math.random() * sunkArrBot.length)];
+    } else if(typeof result === "object" && result.attackResult === "hit"){
+      msg = hitArrBot[Math.floor(Math.random() * hitArrBot.length)];
     }
   }
   attackResultMsgElem.innerHTML = msg;
@@ -173,7 +176,7 @@ computerGameboard.addEventListener("click", e => {
   if(!magame.isOver() && magame.getBattleReady() && magame.getTurn() === "player1"){
     //attacking goes here
     const result = user.attack(x,y);
-    displayAttackResult(user,result,attackResultMsgElem);
+    displayAttackResult(user,result);
     drawBoard(bot.gameboard.getOpponentView(), computerGameboard);
     magame.checkForWin()
     if(!magame.isOver()){

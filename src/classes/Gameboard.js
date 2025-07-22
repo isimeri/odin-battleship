@@ -60,29 +60,24 @@ class Gameboard{
   isGoodPosForPlacement(x,y,shipSize, axis = this.axis){
 
     if(x < 0 || x > 9 || y < 0 || y > 9){
-      // console.log("out of bounds");
       return false;
     }
     if(axis === "x" && x + shipSize - 1 > 9){
-      // console.log(`out of bounds: the ship would end at x = ${x + shipSize -1}`);
       return false;
     }
     if(axis === "y" && y + shipSize - 1 > 9){
-      // console.log(`out of bounds: the ship would end at y = ${y + shipSize -1}`);
       return false;
     }
 
     if(axis === "x"){
       for(let i = x; i < x + shipSize; i++ ){
         if(this.board[y][i].ship !== null){
-          // console.log(`collision with ${this.board[y][i].ship}`);
           return false;
         }
       }
     } else if(axis === "y"){
       for(let i = y; i < y + shipSize; i++ ){
         if(this.board[i][x].ship !== null){
-          // console.log(`collision with ${this.board[i][x].ship}`);
           return false;
         }
       }
@@ -150,28 +145,5 @@ class Gameboard{
     return board;
   }
 }
-
-// const mabord = new Gameboard()
-// mabord.placeShip("frigate", [1,2]);
-// // mabord.printBoard();
-// mabord.changeAxis();
-// console.log(mabord.axis);
-// mabord.placeShip("carrier", [5,0]);
-// // mabord.printBoard();
-// // mabord.placeShip("submarine", [3,1]);
-// // mabord.placeShip("submarine", [1,8]);
-// mabord.changeAxis()
-// // mabord.placeShip("submarine", [3,1]);
-// // mabord.placeShip("submarine", [8,1]);
-// mabord.placeShip("submarine", [4,7]);
-// // mabord.printBoard();
-// // console.log(mabord.getFleet())
-// mabord.takeHit(1,2);
-// mabord.takeHit(2,2);
-// mabord.takeHit(3,2);
-// mabord.takeHit(8,8);
-// // console.log(mabord.getFleet())
-// console.log(mabord.getOpponentView());
-
 
 export default Gameboard;
